@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="order" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Place Order Restriction</label>
+            <tab>echidna</tab>
+            <resource>Echidna_Payment::GeneralSettings</resource>
+            <group id="payment" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable/Disable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="max_trial" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" type="text" canRestore="1">
+                    <label>Maximum Payment Trials</label>
+                    <comment>configuration for payment trials for Credit Cards.</comment>
+                    <validate>required-entry no-whitespace</validate> <!-- Field is required and must not contain any whitespace. -->
+                </field>
+                <field id="ip_address" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" type="text" canRestore="1">
+                    <label>Ip Address Entry Restriction</label>
+                    <comment>Configuration for Ip Address Entry Restriction.</comment>
+                    <validate>required-entry no-whitespace</validate> <!-- Field is required and must not contain any whitespace. -->
+                </field>
+                <field id="message" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" type="text" canRestore="1">
+                    <label>Show Message TO Customer</label>
+                    <comment>Configuration for Show Message To Customer When Restrict Place Order.</comment>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

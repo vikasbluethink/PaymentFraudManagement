@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quote" resource="default" engine="innodb">
+        <column xsi:type="int" name="payment_trials" nullable="false" default="0" comment="Payment Trials"/>
+    </table>
+
+    <table name="echidna_customer_ip_address" resource="default" engine="innodb" comment="IP Addresses Table">
+        <column xsi:type="varchar" name="ip_address" length="50" nullable="false" comment="IP Address"/>
+        <column xsi:type="int" name="increment_field" nullable="false" comment="Increment Field"/>
+        <column xsi:type="int" name="website_id" nullable="false" comment="Website Id"/>
+        <column xsi:type="timestamp" name="created_at" default="CURRENT_TIMESTAMP" on_update="true" nullable="false" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" default="CURRENT_TIMESTAMP" on_update="true" nullable="false" comment="Updated At"/>
+        <index referenceId="IDX_ECHIDNA_CUSTOMER_IP_ADDRESS_IP_ADDRESS" indexType="btree">
+            <column name="ip_address"/>
+        </index>
+        <index referenceId="IDX_ECHIDNA_CUSTOMER_IP_ADDRESS_CREATED_AT" indexType="btree">
+            <column name="created_at"/>
+        </index>
+    </table>
+</schema>

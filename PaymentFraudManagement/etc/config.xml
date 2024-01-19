@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <order>
+            <payment>
+                <enabled>1</enabled>
+                <max_trial>3</max_trial>
+                <ip_address>10</ip_address>
+                <message>Exceeded the payment attempts or ordered more time from same ip address.</message>
+            </payment>
+        </order>
+    </default>
+</config>

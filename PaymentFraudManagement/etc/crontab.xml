@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="delete_ip_address">
+        <job instance="Echidna\PaymentFraudManagement\Cron\DeleteCustomerIpAddress" method="execute" name="delete_customer_ip_address">
+            <schedule>0 5 * * *</schedule>
+        </job>
+    </group>
+</config>

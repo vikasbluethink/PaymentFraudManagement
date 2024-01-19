@@ -1,0 +1,20 @@
+{
+    "quote": {
+        "column": {
+            "payment_trials": true
+        }
+    },
+    "echidna_customer_ip_address": {
+        "column": {
+            "ip_address": true,
+            "increment_field": true,
+            "website_id": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "ECHIDNA_CUSTOMER_IP_ADDRESS_IP_ADDRESS": true,
+            "ECHIDNA_CUSTOMER_IP_ADDRESS_CREATED_AT": true
+        }
+    }
+}

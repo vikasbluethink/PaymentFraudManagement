@@ -1,0 +1,44 @@
+<?php
+$customerId = $this->getRequest()->getParam('id');
+?>
+<div class="messages">
+</div>
+<button type="submit" class="action-default" data-button="<?= $customerId ?>" id="reset-payment-trials">Reset Payment Trials</button>
+
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        $(document).ready(function () {
+            $('#reset-payment-trials').click(function () {
+
+                var customerId = $('#reset-payment-trials').attr('data-button');
+                var url = "<?php echo $this->getUrl('payment/index/index')?>";
+                $.ajax({
+                    url: url,
+                    method: 'POST',
+                    data:{customerId: customerId},
+                    dataType: 'json',
+                    showLoader: true,
+                    success: function(response) {
+                        console.log(response.message);
+
+                        if (response.message) {
+                            var successMessage = response.message;
+
+                            var successContainer = $('<div class="message message-success success"/>');
+                            var successMessageElement = $('<div data-ui-id="messages-message-success"/>').text(successMessage);
+                            successContainer.append(successMessageElement);
+
+                            $('.messages').append(successContainer);
+                        }
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    });
+</script>
